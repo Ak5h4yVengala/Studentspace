@@ -1,0 +1,54 @@
+.sidebar-container {
+    @include layout(column, center);
+    padding: 12px;
+    min-height: 100vh;
+    background: $palette-color-1;
+    width: 72px;
+    @include font-props(600, $font-size-1, $palette-color-4);
+    transition: width 500ms ease-in-out;
+    position: fixed;
+    .logo-container {
+        @include layout(row, flex-start);
+        align-items: center;
+        gap: 5px;
+        .logo {
+            height: 48px;
+        }
+        .menu-title{
+            font-size: 0.1px;
+            transition: font-size 500ms ease-in-out;
+        }
+    }
+    .menu-items-container{
+        @include layout(column, center);
+        justify-self: center;
+        flex: 1;
+        gap: 24px;
+        .menu-item-container {
+            @include layout(row);
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            .menu-logo {
+                height: 36px;
+            }
+            .menu-title {
+                @include font-props(200, $font-size-1, $palette-color-4);
+                font-size: 0.1px;
+                transition: font-size 500ms ease-in-out;
+            }
+        }
+        
+    }
+    &:hover {
+        width: 264px;
+        .menu-title {
+            font-size: 1.5rem;
+        }
+        .menu-item-container {
+            .menu-title {
+                font-size: 1.5rem;
+            }   
+        }
+    }
+}

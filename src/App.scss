@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import "./styles/mixins";
+@import "./styles/colors";
+@import "./styles/variables";
+@import "./styles/components/sidebar";
+@import "./styles/components/layout";
+body {
+  margin: 0;
+  padding: 0;
+  @include font-props(600, $font-size-1, $palette-color-1);
+  background-color: $palette-color-3;
+  width: 100vw;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  @include layout(row);
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 100vh;
+  align-items: start;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: $palette-color-1;
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #d9d9d9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #9e9e9e;
+}

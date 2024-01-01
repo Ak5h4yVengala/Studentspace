@@ -1,0 +1,94 @@
+@mixin layout($flexdirection: row, $justifycontent: normal) {
+  display: flex;
+  flex-direction: $flexdirection;
+  justify-content: $justifycontent;
+}
+
+@mixin font-props($font-weight, $font-size, $font-color) {
+  font-family: "Poppins";
+  font-weight: $font-weight;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+@mixin parent-set-children-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mobileview {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin Applynoborder {
+  box-shadow: none;
+  border: none;
+}
+
+@mixin typography-header($font-weight, $font-size, $font-color) {
+  font-family: "Poppins";
+  font-weight: $font-weight;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+@mixin custom-pagination-style {
+  .MuiPaginationItem-root {
+    background-color: transparent;
+    @include typography-header(400, 12px, $primary-font);
+  }
+
+  .MuiPaginationItem-root.Mui-selected {
+    background-color: $primary-blue;
+    color: white;
+  }
+}
+
+@mixin truncate-text($max-width) {
+  max-width: $max-width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin override-button-mui {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-transform: none;
+}
+
+@mixin button-styling($col, $border, $fc, $width, $height) {
+  text-transform: capitalize;
+  border-radius: 8px;
+  width: $width;
+  background: $col;
+  border: 2px solid $border;
+  height: $height;
+  @include typography-header(400, 14px, $fc);
+}
+
+@mixin sm {
+  @media only screen and (max-width: 640px) {
+    @content;
+  }
+}
+@mixin md {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin xl {
+  @media only screen and (max-width: 1536px) {
+    @content;
+  }
+}
