@@ -1,6 +1,8 @@
 import React from "react";
 import { menuItems } from "../helper/constants";
 import logo from "../assets/logo.svg";
+import login from "../assets/login.svg";
+import signup from "../assets/signup.svg";
 import { Button, Collapse } from "@mui/material";
 import { useSidebar } from "../hooks/useSidebar";
 const Sidebar = () => {
@@ -20,6 +22,16 @@ const Sidebar = () => {
             <span className={`menu-title`}>{item.name}</span>
           </div>
         ))}
+      </div>
+      <div className="login-container">
+        <div className={`menu-item-container`}>
+          <img className="menu-logo" src={login}></img>
+          <span className={`menu-title`}>Login</span>
+        </div>
+        <div className={`menu-item-container`}>
+          <img className="menu-logo-signup" src={signup}></img>
+          <span className={`menu-title`}>SignUp</span>
+        </div>
       </div>
     </div>
   );
