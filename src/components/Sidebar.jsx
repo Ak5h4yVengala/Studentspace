@@ -3,36 +3,53 @@ import { menuItems } from "../helper/constants";
 import logo from "../assets/logo.svg";
 import login from "../assets/login.svg";
 import signup from "../assets/signup.svg";
-import { Button, Collapse } from "@mui/material";
+import {
+  Button,
+  Collapse,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import { useSidebar } from "../hooks/useSidebar";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   const { isSidebarOpened, handleSidebar } = useSidebar();
 
   const SidebarOpened = isSidebarOpened ? "" : "collapsed";
   return (
     <div className={`sidebar-container ${SidebarOpened}`}>
-      <div className="logo-container">
+      <Link to="/" className="logo-container">
         <img className="logo" src={logo}></img>
         <span className={`menu-title`}>STUDENTSPACE</span>
-      </div>
-      <div className="menu-items-container">
+      </Link>
+      <List className="menu-items-container">
         {menuItems.map((item) => (
-          <div className={`menu-item-container`} key={item.name}>
-            <img className="menu-logo" src={item.logo}></img>
-            <span className={`menu-title`}>{item.name}</span>
-          </div>
+          <Link to={item.path} key={item.name}>
+            <ListItem disablePadding className={`menu-item-container`}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <img className="menu-logo" src={item.logo} />
+                </ListItemIcon>
+                <span className={`menu-title`}>{item.name}</span>
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
-      </div>
-      <div className="login-container">
-        <div className={`menu-item-container`}>
-          <img className="menu-logo" src={login}></img>
-          <span className={`menu-title`}>Login</span>
-        </div>
-        <div className={`menu-item-container`}>
-          <img className="menu-logo-signup" src={signup}></img>
-          <span className={`menu-title`}>SignUp</span>
-        </div>
-      </div>
+      </List>
+      <List className="login-container">
+        <Link to="/login">
+          <ListItem disablePadding className={`menu-item-container`}>
+            <ListItemButton>
+              <ListItemIcon>
+                <img className="menu-logo" src={login} />
+              </ListItemIcon>
+              <span className={`menu-title`}>Login</span>
+            </ListItemButton>
+          </ListItem>
+        </Link>
+      </List>
     </div>
   );
 };

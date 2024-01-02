@@ -6,22 +6,27 @@ import socials from "../assets/socials.svg";
 export const menuItems = [
     {
         name: "Home",
-        logo: home
+        logo: home,
+        path: "/"
     },
     {
         name: "Shop",
-        logo: shop
+        logo: shop,
+        path: "/shop"
     },
     {
         name: "Clubs",
-        logo: clubs
+        logo: clubs,
+        path: "/clubs"
     },
     {
         name: "Events",
-        logo: events
+        logo: events,
+        path: "/events"
     },
     {
         name: "Socials",
-        logo: socials
+        logo: socials,
+        path: "/socials"
     },
 ]

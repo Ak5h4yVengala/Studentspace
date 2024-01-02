@@ -1,6 +1,5 @@
 .sidebar-container {
     @include layout(column, center);
-    padding: 12px;
     min-height: 100vh;
     background: $palette-color-1;
     width: 60px;
@@ -9,8 +8,11 @@
     position: fixed;
     .logo-container {
         @include layout(row, flex-start);
+        color: inherit;
         align-items: center;
-        gap: 12px;
+        padding: 12px;
+        gap: 14px;
+        text-decoration: none;
         .logo {
             height: 36px;
         }
@@ -19,46 +21,34 @@
             transition: font-size 500ms ease-in-out;
         }
     }
-    .menu-items-container{
+    .menu-items-container, .login-container{
         @include layout(column, center);
         justify-self: center;
         flex: 1;
-        gap: 24px;
-        .menu-item-container {
-            @include layout(row);
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            .menu-logo {
+        &.login-container {
+            @include layout(column, flex-end);
+            .menu-logo-signup {
+                padding: 8px;
                 height: 36px;
-            }
-            .menu-title {
-                @include font-props(200, $font-size-3, $palette-color-4);
-                font-size: 0.1px;
-                transition: font-size 500ms ease-in-out;
             }
         }
-    }
-    .login-container {
-        @include layout(column, flex-end);
-        justify-self: center;
-        gap: 24px;
         .menu-item-container {
             @include layout(row);
             align-items: center;
-            gap: 12px;
             cursor: pointer;
+            height: 60px;
             .menu-logo {
-                height: 36px;
-            }
-            .menu-logo-signup {
-                padding: 4px;
-                height: 36px;
+                @include layout(row, center);
+                align-items: center;
+                height: 30px;
             }
             .menu-title {
                 @include font-props(200, $font-size-3, $palette-color-4);
                 font-size: 0.1px;
                 transition: font-size 500ms ease-in-out;
+            }
+            &:hover{
+                background: $palette-color-3;
             }
         }
     }
